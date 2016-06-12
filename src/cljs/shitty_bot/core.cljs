@@ -2,14 +2,11 @@
     (:require [reagent.core :as reagent :refer [atom]]
               [reagent.session :as session]
               [secretary.core :as secretary :include-macros true]
-              [accountant.core :as accountant]))
+              [accountant.core :as accountant]
+              [shitty-bot.home :refer [home-page]]   ))
 
 ;; -------------------------
 ;; Views
-
-(defn home-page []
-  [:div [:h2 "Welcome to shitty-bot"]
-   [:div [:a {:href "/about"} "go to about page"]]])
 
 (defn about-page []
   [:div [:h2 "About shitty-bot"]

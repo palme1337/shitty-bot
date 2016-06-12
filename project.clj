@@ -19,7 +19,9 @@
                  [secretary "1.2.3"]
                  [venantius/accountant "0.1.7"
                   :exclusions [org.clojure/tools.reader]]
-                 [lein-figwheel "0.5.1"]]
+                 [lein-figwheel "0.5.1"]
+                 [cljs-ajax "0.5.5"]
+                 [cheshire "5.5.0"]]
 
   :plugins [[lein-environ "1.0.2"]
             [lein-cljsbuild "1.1.1"]
@@ -65,12 +67,8 @@
               :source-map true
               :optimizations :none
               :pretty-print  true}}
-
-
-
             }
    }
-
 
   :figwheel
   {:http-server-root "public"
@@ -80,8 +78,6 @@
                       ]
    :css-dirs ["resources/public/css"]
    :ring-handler shitty-bot.handler/app}
-
-
 
   :profiles {:dev {:repl-options {:init-ns shitty-bot.repl}
 
