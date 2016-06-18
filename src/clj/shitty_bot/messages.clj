@@ -11,11 +11,8 @@
 
 (defn send-message [params]
   "Sends a message to dev group me"
-  (println "Sending a message")
-  (println (get-in params [:body :text] ))
-  (println (get-in params [:body :text] ))
-  (println (get-in params [:body "text"] ))
   (let [text (get-in params [:body "text"] )]
+    (println (str "Sending a message: " text))
     (POST end-point
           {:handler #(-> % print)
            :params  (assoc outgoing-message :text text)

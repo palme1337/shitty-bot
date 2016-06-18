@@ -2,7 +2,7 @@
   (:require [compojure.core :refer [GET POST defroutes]]
             [compojure.route :refer [not-found resources]]
             [hiccup.page :refer [include-js include-css html5]]
-            [shitty-bot.middleware :refer [wrap-middleware insecure-middleware]]
+            [shitty-bot.middleware :refer [wrap-middleware]]
             [config.core :refer [env]]
             [cheshire.core :refer :all]
             [shitty-bot.messages :refer [send-message handle-incoming-message]]))
@@ -38,4 +38,4 @@
            (resources "/")
            (not-found "Not Found"))
 
-  (def app (wrap-middleware #'routes))
+(def app (wrap-middleware #'routes))
