@@ -83,6 +83,7 @@
 
                    :dependencies [[ring/ring-mock "0.3.0"]
                                   [ring/ring-devel "1.5.0"]
+                                  [ring/ring-json "0.4.0"]
                                   [prone "1.1.1"]
                                   [lein-figwheel "0.5.3-2"
                                    :exclusions [org.clojure/core.memoize

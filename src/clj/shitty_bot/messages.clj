@@ -7,16 +7,18 @@
 
 (defonce outgoing-message {:bot_id bot-key})
 
-(defn handle-incoming-message [params] (print params) (print params) (print params) )
+(defn handle-incoming-message [params] (println params) (println params) (println params) "OK")
 
 (defn send-message [params]
   "Sends a message to dev group me"
-  (println params)
-  (println (generate-string params))
-  (println (generate-string
-           (assoc outgoing-message :text "hiu")))
-  (POST end-point
-        {:handler #(-> % print)
-         :params  (assoc outgoing-message :text "hiu")
-         :format  (json-request-format)})
+  (println "Sending a message")
+  (println (get-in params [:body :text] ))
+  (println (get-in params [:body :text] ))
+  (println (get-in params [:body "text"] ))
+  (let [text (get-in params [:body "text"] )]
+    (POST end-point
+          {:handler #(-> % print)
+           :params  (assoc outgoing-message :text text)
+           :format  (json-request-format)})
+    )
   "okay")

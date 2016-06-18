@@ -9,7 +9,9 @@
   (.preventDefault e)
   (POST "/sendMessage"
         {:handler #(-> % print)
-         :params  @state}))
+         :params  @state
+         :error-handler    #(js/alert %)
+         :format  (json-request-format)}))
 
 (defn update-state [message]
   (swap! state assoc :text message))
